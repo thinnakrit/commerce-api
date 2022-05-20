@@ -1,9 +1,8 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { Roles } from '../../common/decorators/roles.decorator';
 import { RolesGuard } from '../../common/guards/roles.guard';
-import { ParseIntPipe } from '../../common/pipes/parse-int.pipe';
 import { CartService } from './cart.service';
-import { CreateCartDto } from './dto/create-cart.dto';
+import { CartSkuDto } from './dto/cart.dto';
 import { Cart } from './interfaces/cart.interface';
 
 @UseGuards(RolesGuard)
@@ -12,22 +11,12 @@ export class CartController {
   constructor(private readonly cartService: CartService) {}
 
   @Post()
-  @Roles('admin')
-  async create(@Body() createCartDto: CreateCartDto) {
-    this.cartService.create(createCartDto);
+  async update(@Body() cart: CartSkuDto) {
+    this.cartService.update(cart);
   }
 
   @Get()
-  async findAll(): Promise<Cart[]> {
-    return this.cartService.findAll();
-  }
-
-  @Get(':id')
-  findOne(
-    @Param('id', new ParseIntPipe())
-    id: number,
-  ) {
-    // get by ID logic
-    return id;
+  async findCart(): Promise<Cart> {
+    return this.cartService.findCart();
   }
 }

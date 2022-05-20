@@ -7,7 +7,7 @@ export interface CartSku {
 }
 
 export interface CartSummary {
-  readonly skus: object;
+  readonly skus: CartSku;
   readonly qty: number;
   readonly couponCode: string;
   readonly promotionID: string;

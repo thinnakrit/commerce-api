@@ -1,15 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { Cart } from './interfaces/cart.interface';
+import { CartSummary, CartSku } from './interfaces/cart.interface';
 
 @Injectable()
 export class CartService {
-  private readonly cart: Cart[] = [];
+  private readonly cart: CartSummary;
+  private readonly cartSku: CartSku;
 
-  create(cart: Cart) {
-    this.cart.push(cart);
+  update(cart: CartSku): CartSummary {
+    return this.cart;
   }
 
-  findAll(): Cart[] {
+  findCart(): CartSummary {
     return this.cart;
   }
 }

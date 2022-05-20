@@ -10,7 +10,12 @@ export class ParentCategoryDto {
   @IsString()
   readonly categoryUrl: string;
 
+  @IsString()
   readonly categoryDetail: string;
+
+  @IsString()
   readonly categoryCoverUrl: string;
+
+  @IsString()
   readonly categorySequence: string;
 }
