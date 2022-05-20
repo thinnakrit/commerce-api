@@ -6,7 +6,7 @@ import { ParentCategoryDto } from './dto/category.dto';
 import { ParentCategory } from './interfaces/category.interface';
 
 @UseGuards(RolesGuard)
-@Controller('category')
+@Controller('product/category')
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 

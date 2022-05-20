@@ -2,7 +2,7 @@ import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { Roles } from '../../common/decorators/roles.decorator';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { ProductService } from './product.service';
-import { AddProductDto } from './dto/add-product.dto';
+import { AddProductDto } from './dto/product.dto';
 import { Product } from './interfaces/product.interface';
 
 @UseGuards(RolesGuard)
